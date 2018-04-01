@@ -1,5 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿ using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 
@@ -14,7 +16,7 @@ namespace JFrogVSPlugin.Data.ViewModels
         //public Severity Severity { get; set; }
         public int Issues { get; set; }
         public ObservableCollection<String> Dependencies { get; set; }
-        public ObservableCollection<ArtifactViewModel>  Children { get; set; }
+        public ObservableCollection<ArtifactViewModel> Children { get; set; }
         public bool Expandable { get { return this.Dependencies != null && this.Dependencies.Count > 0; } }
 
         public bool IsExpanded
@@ -38,27 +40,33 @@ namespace JFrogVSPlugin.Data.ViewModels
 
         public ArtifactViewModel(string key)
         {
+            this.ExpandCommand = new RelayCommand(Expand);
             this.Key = key;
-            dynamic componentsList = JsonConvert.DeserializeObject(System.IO.File.ReadAllText(@"C:\Dima\tree.json"));
-            var component = componentsList.get(this.Key);
-            if (component.dependencies != null && component.dependencies.length > 0)
+            string json = System.IO.File.ReadAllText(@"C:\Users\Dima\source\repos\jvse\data\tree.json");
+            var componentsList = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, dynamic>>>(json);
+            if (!componentsList.ContainsKey(this.Key) || !componentsList[this.Key].ContainsKey("dependencies"))
             {
-                this.Dependencies = new ObservableCollection<String>(component.dependencies);
+                return;
+            }
+
+            string[] dependencies = componentsList[this.Key]["dependencies"].ToObject<string[]>();
+            if (dependencies != null && dependencies.Length > 0)
+            {
+                this.Dependencies = new ObservableCollection<string>(dependencies);
             }
         }
         #region Public Commands
 
         public ICommand ExpandCommand { get; set; }
-
-        public ArtifactViewModel()
-        {
-            this.ExpandCommand = new RelayCommand(Expand);
-        }
         #endregion
 
 
         private void Expand()
         {
+            if(this.Dependencies == null || this.Dependencies.Count == 0)
+            {
+                return;
+            }
             // todo some service should return dependencies
             this.Children = new ObservableCollection<ArtifactViewModel>();
             foreach (string key in this.Dependencies)

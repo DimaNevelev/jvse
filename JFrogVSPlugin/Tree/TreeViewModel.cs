@@ -23,12 +23,12 @@ namespace JFrogVSPlugin.Tree
         /// </summary>
         public TreeViewModel()
         {
-            dynamic rootElementsJson = JsonConvert.DeserializeObject(System.IO.File.ReadAllText(@"C:\Dima\root-elements.json"));
+            dynamic rootElementsJson = JsonConvert.DeserializeObject(System.IO.File.ReadAllText(@"C:\Users\Dima\source\repos\jvse\data\root-elements.json"));
             this.Artifacts = new ObservableCollection<ArtifactViewModel>();
 
-            foreach (string key in rootElementsJson)
+            foreach (dynamic obj in rootElementsJson)
             {
-                this.Artifacts.Add(new ArtifactViewModel(key));
+                Artifacts.Add(new ArtifactViewModel(obj.Name));
             }
         }
 

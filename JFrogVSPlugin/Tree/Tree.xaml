@@ -6,6 +6,21 @@
              mc:Ignorable="d" 
              d:DesignHeight="250" d:DesignWidth="300">
     <Grid>
-        <TreeView HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Stretch" Width="auto"/>
+        <TreeView HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Stretch" Width="auto" x:Name="TreeView" ItemsSource="{Binding Artifacts}">
+            <TreeView.ItemContainerStyle>
+                <Style TargetType="{x:Type TreeViewItem}">
+                    <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
+                </Style>
+            </TreeView.ItemContainerStyle>
+
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate ItemsSource="{Binding Children}">
+                    <StackPanel Orientation="Horizontal">
+                        <!--<Image Width="20" Margin="3" Source="{Binding ImageName, Converter={x:Static local:HeaderToImageConverter.Instance}}"/> !-->
+                        <TextBlock VerticalAlignment="Center" Text="{Binding Key}"/>
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
+        </TreeView>
     </Grid>
 </UserControl>

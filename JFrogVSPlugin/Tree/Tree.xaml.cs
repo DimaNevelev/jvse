@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using JFrogVSPlugin.Data.ViewModels;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -13,6 +14,7 @@ namespace JFrogVSPlugin.Tree
         public Tree()
         {
             InitializeComponent();
+            this.DataContext = new TreeViewModel();
         }
 
         private void Button1_Click(object sender, RoutedEventArgs e)

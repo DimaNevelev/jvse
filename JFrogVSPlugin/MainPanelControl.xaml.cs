@@ -15,7 +15,7 @@
         public MainPanelControl()
         {
             this.InitializeComponent();
-            var a = new Tree.TreeViewModel();
+           
             
         }
 
