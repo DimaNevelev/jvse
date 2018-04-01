@@ -1,0 +1,49 @@
+{
+  "aa:1.1": {
+    "artifact": "aa",
+    "version": "1.1",
+    "type": "Nuget",
+    "dependencies": [
+      "a:1",
+      "b:2",
+      "c:3"
+    ],
+    "Suvirity": "Noral",
+    "Issues": [
+      "aa.aa",
+      "bb.bb",
+      "c.c"
+    ]
+  },
+  "a:1": {
+    "artifact": "a",
+    "version": "1",
+    "type": "Nuget",
+    "Suvirity": "None"
+  },
+  "b:2": {
+    "artifact": "b",
+    "version": "2",
+    "type": "Nuget",
+    "dependencies": [
+      "c:3"
+    ],
+    "Suvirity": "Noral",
+    "Issues": [
+      "aa.aa",
+      "bb.bb",
+      "c.c"
+    ]
+  },
+  "c:3": {
+    "artifact": "c",
+    "version": "3",
+    "type": "Nuget",
+    "Suvirity": "Noral",
+    "Issues": [
+      "aa.aa",
+      "bb.bb",
+      "c.c"
+    ]
+  }
+}
