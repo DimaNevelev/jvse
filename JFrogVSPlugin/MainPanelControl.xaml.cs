@@ -15,8 +15,6 @@
         public MainPanelControl()
         {
             this.InitializeComponent();
-           
-            
         }
 
         /// <summary>
@@ -31,6 +29,17 @@
             MessageBox.Show(
                 string.Format(System.Globalization.CultureInfo.CurrentUICulture, "Invoked '{0}'", this.ToString()),
                 "MainPanel");
+        }
+
+        private void onSelectedChanged(object sender, RoutedEventArgs e)
+        {
+            //demo for direct Routed Event
+            MessageBox.Show("ok");
+        }
+
+        private void MyCustomControl_Selected(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("It is the custom routed event of your custom control");
         }
     }
 }

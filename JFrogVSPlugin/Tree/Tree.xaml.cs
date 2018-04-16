@@ -1,7 +1,11 @@
 ﻿using JFrogVSPlugin.Data.ViewModels;
+using Microsoft.VisualStudio.Shell.Interop;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
+using Xray.Data;
+using EnvDTE;
+using EnvDTE80;
 
 namespace JFrogVSPlugin.Tree
 {
@@ -17,9 +21,9 @@ namespace JFrogVSPlugin.Tree
             this.DataContext = new TreeViewModel();
         }
 
-        private void Button1_Click(object sender, RoutedEventArgs e)
+        private void SelectionChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            MessageBox.Show(string.Format(CultureInfo.CurrentUICulture, "We are inside {0}.Button1_Click()", this.ToString()));
+            ((TreeViewModel)this.DataContext).SelectedKey = ((ArtifactViewModel)e.NewValue).Key;
         }
     }
 }

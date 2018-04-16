@@ -1,0 +1,8 @@
+C:\Users\Dima\source\repos\jvse\Xray\bin\Debug\netstandard1.4\XrayStrongAssembly.deps.json
+C:\Users\Dima\source\repos\jvse\Xray\bin\Debug\netstandard1.4\XrayStrongAssembly.dll
+C:\Users\Dima\source\repos\jvse\Xray\bin\Debug\netstandard1.4\XrayStrongAssembly.pdb
+C:\Users\Dima\source\repos\jvse\Xray\obj\Debug\netstandard1.4\Xray.csprojResolveAssemblyReference.cache
+C:\Users\Dima\source\repos\jvse\Xray\obj\Debug\netstandard1.4\Xray.csproj.CoreCompileInputs.cache
+C:\Users\Dima\source\repos\jvse\Xray\obj\Debug\netstandard1.4\Xray.AssemblyInfo.cs
+C:\Users\Dima\source\repos\jvse\Xray\obj\Debug\netstandard1.4\XrayStrongAssembly.dll
+C:\Users\Dima\source\repos\jvse\Xray\obj\Debug\netstandard1.4\XrayStrongAssembly.pdb

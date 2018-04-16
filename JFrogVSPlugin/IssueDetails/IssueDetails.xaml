@@ -6,6 +6,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="250" d:DesignWidth="300">
     <Grid>
-        <Button Content="Click Here !" Height="50" HorizontalAlignment="Left" Margin="100,100,0,0" Name="Button1" VerticalAlignment="Top" Width="100" Click="Button1_Click" />
+        <TextBox Name="SelectedKey" Text="{Binding SelectedKey, Mode=TwoWay}"/>
     </Grid>
 </UserControl>

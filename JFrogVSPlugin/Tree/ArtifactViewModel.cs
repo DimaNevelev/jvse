@@ -17,7 +17,6 @@ namespace JFrogVSPlugin.Data.ViewModels
         public int Issues { get; set; }
         public ObservableCollection<String> Dependencies { get; set; }
         public ObservableCollection<ArtifactViewModel> Children { get; set; }
-        public bool Expandable { get { return this.Dependencies != null && this.Dependencies.Count > 0; } }
 
         public bool IsExpanded
         {
@@ -53,6 +52,8 @@ namespace JFrogVSPlugin.Data.ViewModels
             if (dependencies != null && dependencies.Length > 0)
             {
                 this.Dependencies = new ObservableCollection<string>(dependencies);
+                // Setup an empty children
+                this.ClearChildren();
             }
         }
         #region Public Commands
@@ -73,15 +74,12 @@ namespace JFrogVSPlugin.Data.ViewModels
             {
                 this.Children.Add(new ArtifactViewModel(key));
             }
-           // componentsList.
         }
 
         private void ClearChildren()
         {
-            this.Children = null;
+            this.Children = new ObservableCollection<ArtifactViewModel>();
+            this.Children.Add(null);
         }
-
-        //public Artifact Artifact { get; set; }
-
     }
 }

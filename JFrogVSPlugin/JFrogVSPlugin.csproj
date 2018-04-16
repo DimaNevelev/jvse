@@ -97,15 +97,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="FodyWeavers.xml" />
-    <Content Include="Images\critical.png" />
-    <Content Include="Images\default.png" />
-    <Content Include="Images\jfrog_icon.png" />
-    <Content Include="Images\license.png" />
-    <Content Include="Images\major.png" />
-    <Content Include="Images\minor.png" />
-    <Content Include="Images\normal.png" />
-    <Content Include="Images\security.png" />
-    <Content Include="Images\unknown.png" />
+    <Content Include="IssueDetails\Images\critical.png" />
+    <Content Include="IssueDetails\Images\default.png" />
+    <Content Include="IssueDetails\Images\jfrog_icon.png" />
+    <Content Include="IssueDetails\Images\license.png" />
+    <Content Include="IssueDetails\Images\major.png" />
+    <Content Include="IssueDetails\Images\minor.png" />
+    <Content Include="IssueDetails\Images\normal.png" />
+    <Content Include="IssueDetails\Images\security.png" />
+    <Content Include="IssueDetails\Images\unknown.png" />
     <Content Include="Resources\MainPanelCommand.png" />
     <Content Include="Resources\MainPanelPackage.ico" />
     <Content Include="stylesheet.css" />

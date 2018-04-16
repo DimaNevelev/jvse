@@ -14,6 +14,8 @@ namespace JFrogVSPlugin.Tree
         /// </summary>
         public ObservableCollection<ArtifactViewModel> Artifacts { get; set; }
 
+        public string SelectedKey { get; set; }
+
         #endregion
 
         #region Constructor
@@ -25,6 +27,7 @@ namespace JFrogVSPlugin.Tree
         {
             dynamic rootElementsJson = JsonConvert.DeserializeObject(System.IO.File.ReadAllText(@"C:\Users\Dima\source\repos\jvse\data\root-elements.json"));
             this.Artifacts = new ObservableCollection<ArtifactViewModel>();
+            this.SelectedKey = "";
 
             foreach (dynamic obj in rootElementsJson)
             {
