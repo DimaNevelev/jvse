@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="JFrogVSPlugin.b7f2dadc-4e2e-4de9-ab7e-6f46f79fbd5a" Version="1.0" Language="en-US" Publisher="Eyal BM" />
+        <Identity Id="JFrogVSPlugin.b7f2dadc-4e2e-4de9-ab7e-6f46f79fbd5a" Version="1.0" Language="en-US" Publisher="Dima Nevelev" />
         <DisplayName>JFrog Visual Studio Plugin</DisplayName>
         <Description xml:space="preserve">Dima This is your app</Description>
+        <Icon>jfrog_icon.png</Icon>
     </Metadata>
     <Installation>
         <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[15.0]" />

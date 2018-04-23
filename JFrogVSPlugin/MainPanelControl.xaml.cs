@@ -15,6 +15,7 @@
         public MainPanelControl()
         {
             this.InitializeComponent();
+            this.DataContext = new MainViewModel();
         }
 
         /// <summary>

@@ -14,10 +14,5 @@ namespace JFrogVSPlugin.IssueDetails
         {
             InitializeComponent();
         }
-
-        private void Button1_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show(string.Format(CultureInfo.CurrentUICulture, "We are inside {0}.Button1_Click()", this.ToString()));
-        }
     }
 }

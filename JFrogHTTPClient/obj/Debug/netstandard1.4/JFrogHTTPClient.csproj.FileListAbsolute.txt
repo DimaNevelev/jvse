@@ -1,8 +1,0 @@
-C:\Users\Dima\source\repos\jvse\JFrogHTTPClient\bin\Debug\netstandard1.4\JFrogHTTPClient.deps.json
-C:\Users\Dima\source\repos\jvse\JFrogHTTPClient\bin\Debug\netstandard1.4\JFrogHTTPClient.dll
-C:\Users\Dima\source\repos\jvse\JFrogHTTPClient\bin\Debug\netstandard1.4\JFrogHTTPClient.pdb
-C:\Users\Dima\source\repos\jvse\JFrogHTTPClient\obj\Debug\netstandard1.4\JFrogHTTPClient.csprojResolveAssemblyReference.cache
-C:\Users\Dima\source\repos\jvse\JFrogHTTPClient\obj\Debug\netstandard1.4\JFrogHTTPClient.csproj.CoreCompileInputs.cache
-C:\Users\Dima\source\repos\jvse\JFrogHTTPClient\obj\Debug\netstandard1.4\JFrogHTTPClient.AssemblyInfo.cs
-C:\Users\Dima\source\repos\jvse\JFrogHTTPClient\obj\Debug\netstandard1.4\JFrogHTTPClient.dll
-C:\Users\Dima\source\repos\jvse\JFrogHTTPClient\obj\Debug\netstandard1.4\JFrogHTTPClient.pdb

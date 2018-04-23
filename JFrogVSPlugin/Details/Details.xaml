@@ -6,6 +6,24 @@
              mc:Ignorable="d" 
              d:DesignHeight="250" d:DesignWidth="300">
     <Grid>
-        <Button Content="Click Here !" Height="50" HorizontalAlignment="Left" Margin="100,100,0,0" Name="Button1" VerticalAlignment="Top" Width="100" Click="Button1_Click" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="20px"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Group:"/>
+        <TextBlock Grid.Row="0" Grid.Column="2" Text="{Binding Path=SelectedComponent.Group}" />
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Artifact:"/>
+        <TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding Path=SelectedComponent.Artifact}"/>
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Version:"/>
+        <TextBlock Grid.Row="2" Grid.Column="2" Text="{Binding Path=SelectedComponent.Version}"/>
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="Group:"/>
+        <TextBlock Grid.Row="3" Grid.Column="2" Text="{Binding Path=SelectedComponent.Type}" />
     </Grid>
 </UserControl>

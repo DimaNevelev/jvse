@@ -9,14 +9,14 @@
              Background="{DynamicResource VsBrush.Window}"
              Foreground="{DynamicResource VsBrush.WindowText}"
              mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="300"
+             d:DesignHeight="574.554" d:DesignWidth="2716.071"
              Name="MainPanel">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
-        <Grid x:Name="Tree" Grid.Column="0">
+        <Grid x:Name="Tree" Grid.Column="0"  DataContext="{Binding Tree}">
             <Tree:Tree/>
         </Grid>
         <Grid x:Name="Info" Grid.Column="1">
@@ -25,10 +25,10 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Grid x:Name="Details" Grid.Row="0">
-                <Details:Details/>
+                <Details:Details DataContext="{Binding Tree}"/>
             </Grid>
-            <Grid x:Name="IssueDetails" Grid.Row="1">
-                <IssueDetails:IssueDetails/>
+            <Grid x:Name="IssueDetails" Grid.Row="1" DataContext="{Binding Tree}">
+                <IssueDetails:IssueDetails />
             </Grid>
         </Grid>
     </Grid>

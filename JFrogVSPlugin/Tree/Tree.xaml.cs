@@ -15,10 +15,11 @@ namespace JFrogVSPlugin.Tree
     [ProvideToolboxControl("JFrogVSPlugin.Tree.Tree", true)]
     public partial class Tree : UserControl
     {
+
         public Tree()
         {
             InitializeComponent();
-            this.DataContext = new TreeViewModel();
+           // this.DataContext = new TreeViewModel();
         }
 
         private void SelectionChanged(object sender, RoutedPropertyChangedEventArgs<object> e)

@@ -55,6 +55,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Data\DataService.cs" />
+    <Compile Include="MainViewModel.cs" />
     <Compile Include="RelayCommand.cs" />
     <Compile Include="Tree\ArtifactViewModel.cs" />
     <Compile Include="Data\ViewModels\BaseViewModel.cs" />
@@ -80,10 +82,13 @@
       <DependentUpon>Tree.xaml</DependentUpon>
     </Compile>
     <Compile Include="Tree\TreeViewModel.cs" />
+    <Compile Include="Utils\HeaderToImageConverter.cs" />
     <Compile Include="Utils\TreeStructure.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Data\static\root-elements.json" />
+    <None Include="Data\static\tree.json" />
     <None Include="Key.snk" />
     <VSCTCompile Include="MainPanelPackage.vsct">
       <ResourceName>Menus.ctmenu</ResourceName>
@@ -97,15 +102,34 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="FodyWeavers.xml" />
-    <Content Include="IssueDetails\Images\critical.png" />
-    <Content Include="IssueDetails\Images\default.png" />
-    <Content Include="IssueDetails\Images\jfrog_icon.png" />
-    <Content Include="IssueDetails\Images\license.png" />
-    <Content Include="IssueDetails\Images\major.png" />
-    <Content Include="IssueDetails\Images\minor.png" />
-    <Content Include="IssueDetails\Images\normal.png" />
-    <Content Include="IssueDetails\Images\security.png" />
-    <Content Include="IssueDetails\Images\unknown.png" />
+    <Content Include="Resources\critical.png">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Resources\default.png">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Resources\jfrog_icon.png">
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\license.png">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Resources\major.png">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Resources\minor.png">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Resources\normal.png">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Resources\security.png">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Resources\unknown.png">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <Content Include="Resources\MainPanelCommand.png" />
     <Content Include="Resources\MainPanelPackage.ico" />
     <Content Include="stylesheet.css" />

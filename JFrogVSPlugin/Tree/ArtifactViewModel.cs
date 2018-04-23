@@ -41,7 +41,7 @@ namespace JFrogVSPlugin.Data.ViewModels
         {
             this.ExpandCommand = new RelayCommand(Expand);
             this.Key = key;
-            string json = System.IO.File.ReadAllText(@"C:\Users\Dima\source\repos\jvse\data\tree.json");
+            string json = System.IO.File.ReadAllText(@"..\..\Data\static\tree.json");
             var componentsList = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, dynamic>>>(json);
             if (!componentsList.ContainsKey(this.Key) || !componentsList[this.Key].ContainsKey("dependencies"))
             {
