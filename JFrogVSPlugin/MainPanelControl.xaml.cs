@@ -3,12 +3,28 @@
     using System.Diagnostics.CodeAnalysis;
     using System.Windows;
     using System.Windows.Controls;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Data;
+    using System.Windows.Documents;
+    using System.Windows.Input;
+    using System.Windows.Media;
+    using System.Windows.Media.Imaging;
+    using System.Windows.Navigation;
+    using System.Windows.Shapes;
+    using System.Globalization;
+
 
     /// <summary>
     /// Interaction logic for MainPanelControl.
     /// </summary>
     public partial class MainPanelControl : UserControl
     {
+     
         /// <summary>
         /// Initializes a new instance of the <see cref="MainPanelControl"/> class.
         /// </summary>
@@ -16,6 +32,17 @@
         {
             this.InitializeComponent();
             this.DataContext = new MainViewModel();
+          
+        }
+
+        /// <summary>
+        /// Handles Refresh button.
+        /// </summary>
+        /// <param name="sender">The event sender.</param>
+        /// <param name="e">The event args.</param>
+        private void RefreshTree(object sender, RoutedEventArgs e)
+        {
+            ((MainViewModel)this.DataContext).Refresh();
         }
 
         /// <summary>
@@ -23,24 +50,32 @@
         /// </summary>
         /// <param name="sender">The event sender.</param>
         /// <param name="e">The event args.</param>
-        [SuppressMessage("Microsoft.Globalization", "CA1300:SpecifyMessageBoxOptions", Justification = "Sample code")]
-        [SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:ElementMustBeginWithUpperCaseLetter", Justification = "Default event handler naming pattern")]
-        private void button1_Click(object sender, RoutedEventArgs e)
+        private void ColapseTree(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(
-                string.Format(System.Globalization.CultureInfo.CurrentUICulture, "Invoked '{0}'", this.ToString()),
-                "MainPanel");
+            ((MainViewModel)this.DataContext).Refresh();
         }
 
-        private void onSelectedChanged(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Handles click on the button by displaying a message box.
+        /// </summary>
+        /// <param name="sender">The event sender.</param>
+        /// <param name="e">The event args.</param>
+        private void ExpandTree(object sender, RoutedEventArgs e)
         {
-            //demo for direct Routed Event
-            MessageBox.Show("ok");
+
+            ((MainViewModel)this.DataContext).ExpandAll();
         }
 
-        private void MyCustomControl_Selected(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Handles click on the button by displaying a message box.
+        /// </summary>
+        /// <param name="sender">The event sender.</param>
+        /// <param name="e">The event args.</param>
+        private void CollapseTree(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("It is the custom routed event of your custom control");
+
+            ((MainViewModel)this.DataContext).CollapseAll();
         }
+
     }
 }

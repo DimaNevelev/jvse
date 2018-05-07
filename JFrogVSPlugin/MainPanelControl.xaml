@@ -6,29 +6,88 @@
              xmlns:Tree="clr-namespace:JFrogVSPlugin.Tree"
              xmlns:IssueDetails="clr-namespace:JFrogVSPlugin.IssueDetails"
              xmlns:Details="clr-namespace:JFrogVSPlugin.Details"
-             Background="{DynamicResource VsBrush.Window}"
-             Foreground="{DynamicResource VsBrush.WindowText}"
              mc:Ignorable="d"
-             d:DesignHeight="574.554" d:DesignWidth="2716.071"
-             Name="MainPanel">
+             xmlns:vsp="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Shell.15.0"
+             xmlns:util="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Utilities"
+             xmlns:catalog="clr-namespace:Microsoft.VisualStudio.Imaging;assembly=Microsoft.VisualStudio.ImageCatalog"
+             xmlns:imaging="clr-namespace:Microsoft.VisualStudio.Imaging;assembly=Microsoft.VisualStudio.Imaging"
+             xmlns:theming="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Imaging" 
+             Name="JFrog"
+             Background="{DynamicResource {x:Static vsp:EnvironmentColors.ToolWindowBackgroundBrushKey}}"
+             Foreground="{DynamicResource {x:Static vsp:EnvironmentColors.ToolWindowTextBrushKey}}">
+    
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="2*"/>
-        </Grid.ColumnDefinitions>
-        <Grid x:Name="Tree" Grid.Column="0"  DataContext="{Binding Tree}">
-            <Tree:Tree/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <DockPanel>
+                <WrapPanel DockPanel.Dock="Top" Margin="3">
+                    <Button x:Name="RefreshBtn" 
+                            VerticalAlignment="Top" 
+                            Click="RefreshTree" 
+                            ToolTip="Refresh the tree"
+                            Background="Transparent" 
+                            BorderBrush="Transparent">
+                        <imaging:CrispImage x:Uid="CrispRefreshImage" Moniker="{x:Static catalog:KnownMonikers.Refresh}"/>
+                    </Button>
+                    <Button x:Name="ExpandBtn" 
+                            VerticalAlignment="Top" 
+                            Click="ExpandTree" 
+                            ToolTip="Expand All"
+                            Background="Transparent" 
+                            BorderBrush="Transparent">
+                        <imaging:CrispImage x:Uid="CrispExpandImage" Moniker="{x:Static catalog:KnownMonikers.ExpandAll}"/>
+                    </Button>
+                    <Button x:Name="CollapseBtn" 
+                            VerticalAlignment="Top" 
+                            Click="CollapseTree" 
+                            ToolTip="Collapse All"
+                            Background="Transparent" 
+                            BorderBrush="Transparent">
+                        <imaging:CrispImage x:Uid="CrispCollapseImage" Moniker="{x:Static catalog:KnownMonikers.CollapseAll}"/>
+                    </Button>
+                </WrapPanel>
+            </DockPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                
+            </StackPanel>
+            <!--  <imaging:CrispImage Height="16" Width="16" Moniker="{x:Static KnownMonikers.Refresh}"/>-->
+
+                <!-- <imaging:CrispImage x:Uid="CrispImage_1" Width="32" Height="32" Moniker="{x:Static catalog:KnownMonikers.Refresh}" 
+                                theming:ImageThemingUtilities.ImageBackgroundColor="{Binding Background, ElementName=BackgroundInvert, Converter={StaticResource BrushToColorConverter}}"/>-->
+          
         </Grid>
-        <Grid x:Name="Info" Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-            <Grid x:Name="Details" Grid.Row="0">
-                <Details:Details DataContext="{Binding Tree}"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Grid x:Name="Tree" Grid.Column="0" DataContext="{Binding Tree}">
+                <Tree:Tree/>
             </Grid>
-            <Grid x:Name="IssueDetails" Grid.Row="1" DataContext="{Binding Tree}">
-                <IssueDetails:IssueDetails />
+            <GridSplitter Grid.Column="1" Width="4"
+                      HorizontalAlignment="Stretch" 
+                      Background="{DynamicResource {x:Static vsp:EnvironmentColors.ToolWindowBorderBrushKey}}"/>
+            <Grid x:Name="Info" Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid x:Name="Details" Grid.Row="0">
+                    <Details:Details DataContext="{Binding Tree}"/>
+                </Grid>
+                <GridSplitter 
+                    Grid.Row="1"  
+                    Height="4"
+                    HorizontalAlignment="Stretch" 
+                    Background="{DynamicResource {x:Static vsp:EnvironmentColors.ToolWindowBorderBrushKey}}"/>
+                <Grid x:Name="IssueDetails" Grid.Row="2" DataContext="{Binding Tree}">
+                    <IssueDetails:IssueDetails />
+                </Grid>
             </Grid>
         </Grid>
     </Grid>

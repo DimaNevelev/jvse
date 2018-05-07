@@ -40,25 +40,32 @@ namespace JFrogVSPlugin.Data.ViewModels
         public ArtifactViewModel(string key)
         {
             this.ExpandCommand = new RelayCommand(Expand);
+            DataService dataService = DataService.Instance;
             this.Key = key;
-            string json = System.IO.File.ReadAllText(@"..\..\Data\static\tree.json");
-            var componentsList = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, dynamic>>>(json);
-            if (!componentsList.ContainsKey(this.Key) || !componentsList[this.Key].ContainsKey("dependencies"))
+            Component component = dataService.getComponent(key);
+            if (component == null || component.Dependencies == null || component.Dependencies.Count == 0)
             {
                 return;
             }
-
-            string[] dependencies = componentsList[this.Key]["dependencies"].ToObject<string[]>();
-            if (dependencies != null && dependencies.Length > 0)
-            {
-                this.Dependencies = new ObservableCollection<string>(dependencies);
-                // Setup an empty children
-                this.ClearChildren();
-            }
+            this.Dependencies = new ObservableCollection<string>(component.Dependencies);
+            // Setup an empty children
+            this.ClearChildren();
         }
         #region Public Commands
 
         public ICommand ExpandCommand { get; set; }
+
+        public void ExpandAll()
+        {
+            this.IsExpanded = true;
+            if (this.Children != null)
+            {
+                foreach (var child in this.Children)
+                {
+                    child.ExpandAll();
+                }
+            }
+        }
         #endregion
 
 
@@ -78,8 +85,10 @@ namespace JFrogVSPlugin.Data.ViewModels
 
         private void ClearChildren()
         {
-            this.Children = new ObservableCollection<ArtifactViewModel>();
-            this.Children.Add(null);
+            this.Children = new ObservableCollection<ArtifactViewModel>
+            {
+                null
+            };
         }
     }
 }

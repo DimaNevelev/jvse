@@ -3,31 +3,73 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vsp="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Shell.15.0"
              mc:Ignorable="d" 
-             d:DesignHeight="250" d:DesignWidth="300">
-    <Grid>
-        <TreeView HorizontalAlignment="Stretch" 
-                  Height="auto" 
-                  VerticalAlignment="Stretch" 
-                  Width="auto" 
-                  x:Name="TreeView" 
-                  ItemsSource="{Binding Artifacts}"
-                  SelectedItemChanged="SelectionChanged">
-            <TreeView.ItemContainerStyle>
-                <Style TargetType="{x:Type TreeViewItem}">
-                    <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
-                </Style>
-            </TreeView.ItemContainerStyle>
+             d:DesignHeight="250" d:DesignWidth="300"
+             Background="{DynamicResource {x:Static vsp:EnvironmentColors.ToolWindowBackgroundBrushKey}}"
+             Foreground="{DynamicResource {x:Static vsp:EnvironmentColors.ToolWindowTextBrushKey}}">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type TreeView}">
+            <Setter Property="BorderBrush" Value="{DynamicResource {x:Static vsp:TreeViewColors.BackgroundBrushKey}}"/>
+            <Setter Property="Background" Value="{DynamicResource {x:Static vsp:TreeViewColors.BackgroundBrushKey}}"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+        </Style>
 
-            <TreeView.ItemTemplate>
-                <HierarchicalDataTemplate ItemsSource="{Binding Children}">
-                    <StackPanel Orientation="Horizontal">
-                        <!--<Image Width="20" Margin="3" 
-                        Source="{Binding ImageName, Converter={x:Static local:HeaderToImageConverter.Instance}}"/> !-->
-                        <TextBlock VerticalAlignment="Center" Text="{Binding Key}"/>
-                    </StackPanel>
-                </HierarchicalDataTemplate>
-            </TreeView.ItemTemplate>
-        </TreeView>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static vsp:EnvironmentColors.ToolWindowTextBrushKey}}"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid  Grid.Row="0">
+            <TextBlock Text="Components Tree" Padding="3"/>
+            <TextBlock Text="Issues ()" Padding="3" TextAlignment="Right"/>
+        </Grid>
+        <StackPanel Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <TreeView Grid.Row="1"                   
+                ItemsSource="{Binding Artifacts}"                       
+                SelectedItemChanged="SelectionChanged" 
+                BorderThickness="0,1,0,1"         
+                HorizontalAlignment="Stretch"
+                Height="auto" 
+                VerticalAlignment="Stretch" 
+                Width="auto" 
+                x:Name="TreeView">
+
+                <TreeView.ItemContainerStyle>
+                    <Style TargetType="{x:Type TreeViewItem}">
+                        <Setter Property="OverridesDefaultStyle" Value="False" />
+                        <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
+                        <Setter Property="SnapsToDevicePixels" Value="True" />
+                        <Setter Property="Padding" Value="0"/>
+                        <Setter Property="Margin" Value="0,3,0,0"/>
+                        <Setter Property="Foreground" Value="{DynamicResource {x:Static vsp:TreeViewColors.GlyphBrushKey}}"/>
+                        <Setter Property="Background" Value="{DynamicResource {x:Static vsp:TreeViewColors.BackgroundBrushKey}}"/>
+                        <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}"/>
+                    </Style>
+                </TreeView.ItemContainerStyle>
+
+                <TreeView.ItemTemplate>
+                    <HierarchicalDataTemplate ItemsSource="{Binding Children}">
+                        <TextBlock Text="{Binding Key}" Width="Auto"/>
+
+                        <!--                       <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.ColumnSpan="5" Grid.Column="1" Text="(1)" Background="{DynamicResource {x:Static vsp:EnvironmentColors.ToolWindowBackgroundBrushKey}}" HorizontalAlignment="Right"/>
+                        </Grid>-->
+
+
+                    </HierarchicalDataTemplate>
+                </TreeView.ItemTemplate>
+            </TreeView>
+        </StackPanel>
     </Grid>
 </UserControl>

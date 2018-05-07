@@ -3,27 +3,46 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vsp="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Shell.15.0"
              mc:Ignorable="d" 
-             d:DesignHeight="250" d:DesignWidth="300">
+             Background="{DynamicResource {x:Static vsp:EnvironmentColors.ToolWindowBackgroundBrushKey}}"
+             Foreground="{DynamicResource {x:Static vsp:EnvironmentColors.ToolWindowTextBrushKey}}">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static vsp:EnvironmentColors.ToolWindowTextBrushKey}}"/>
+            <Setter Property="Padding" Value="8,0,0,0"/>
+        </Style>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="20px"/>
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-        <TextBlock Grid.Row="0" Grid.Column="0" Text="Group:"/>
-        <TextBlock Grid.Row="0" Grid.Column="2" Text="{Binding Path=SelectedComponent.Group}" />
-        <TextBlock Grid.Row="1" Grid.Column="0" Text="Artifact:"/>
-        <TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding Path=SelectedComponent.Artifact}"/>
-        <TextBlock Grid.Row="2" Grid.Column="0" Text="Version:"/>
-        <TextBlock Grid.Row="2" Grid.Column="2" Text="{Binding Path=SelectedComponent.Version}"/>
-        <TextBlock Grid.Row="3" Grid.Column="0" Text="Group:"/>
-        <TextBlock Grid.Row="3" Grid.Column="2" Text="{Binding Path=SelectedComponent.Type}" />
+        <Grid Grid.Row="0">
+            <TextBlock Text="Components Details" Padding="3"/>
+        </Grid>
+        <Border  Grid.Row="1" BorderBrush="{DynamicResource {x:Static vsp:EnvironmentColors.ToolWindowBorderBrushKey}}" BorderThickness="0,1,0,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="20px"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Group:"/>
+                <TextBlock Grid.Row="0" Grid.Column="2" Text="{Binding Path=SelectedComponent.Group}" />
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="Artifact:"/>
+                <TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding Path=SelectedComponent.Artifact}"/>
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="Version:"/>
+                <TextBlock Grid.Row="2" Grid.Column="2" Text="{Binding Path=SelectedComponent.Version}"/>
+                <TextBlock Grid.Row="3" Grid.Column="0" Text="Group:"/>
+                <TextBlock Grid.Row="3" Grid.Column="2" Text="{Binding Path=SelectedComponent.Type}" />
+            </Grid>
+        </Border>
     </Grid>
 </UserControl>

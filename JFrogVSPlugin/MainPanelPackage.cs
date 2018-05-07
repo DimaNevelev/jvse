@@ -51,7 +51,6 @@ namespace JFrogVSPlugin
             // any Visual Studio service because at this point the package object is created but
             // not sited yet inside Visual Studio environment. The place to do all the other
             // initialization is the Initialize method.
-         
         }
 
         #region Package Members
@@ -64,6 +63,8 @@ namespace JFrogVSPlugin
         {
             MainPanelCommand.Initialize(this);
             base.Initialize();
+            //BitmapImageMoniker = Microsoft.VisualStudio.Imaging.KnownMonikers.Search;
+
         }
 
         #endregion

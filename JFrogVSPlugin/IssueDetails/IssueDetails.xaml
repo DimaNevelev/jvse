@@ -3,33 +3,60 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             mc:Ignorable="d" 
-             >
+             mc:Ignorable="d"
+             xmlns:vsp="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Shell.15.0"
+             Background="{DynamicResource {x:Static vsp:EnvironmentColors.ToolWindowBackgroundBrushKey}}"
+             Foreground="{DynamicResource {x:Static vsp:EnvironmentColors.ToolWindowTextBrushKey}}">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type DataGrid}">
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="IsReadOnly" Value="True"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static vsp:EnvironmentColors.BrandedUIBackgroundBrushKey}}"/>
+        </Style>
+    </UserControl.Resources>
     <Grid>
-        <DataGrid Name="issuesDataGrid" ItemsSource="{Binding IssueDetails, Mode=OneWay}"
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <TextBlock Text="Components Issues Details" Padding="3"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <DataGrid Name="issuesDataGrid" 
+                  ItemsSource="{Binding IssueDetails, Mode=OneWay}"
                   CanUserAddRows="False"
                   HorizontalAlignment="Stretch" 
                   VerticalAlignment="Stretch"
-                  AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTemplateColumn Header="Severity"  IsReadOnly="True">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <!--<Image Width="20" Margin="3" 
+                  Background="Transparent"
+                  AutoGenerateColumns="False"
+                  BorderThickness="0"
+                  Margin="0" 
+                  SelectionUnit="Cell" 
+                  CanUserReorderColumns="False" 
+                  AlternatingRowBackground="#f8f6ff" 
+                  HorizontalGridLinesBrush="Transparent" 
+                  VerticalGridLinesBrush="Transparent" 
+                  RowHeaderWidth="0">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Severity" IsReadOnly="True">
+                        <DataGridTemplateColumn.CellTemplate >
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <!--<Image Width="20" Margin="3" 
                                    Source="{Binding Severity,
                                         Converter={x:Static local:HeaderToImageConverter.Instance}}" /> -->
-                                <TextBlock Text="{Binding Severity}" />
-                            </StackPanel>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTextColumn  Header="Summary" Binding="{Binding Summary}"/>
-                <DataGridTextColumn  Header="Issue Type" Binding="{Binding IssueType}"/>
-                <DataGridTextColumn  Header="Component" Binding="{Binding Component}" Width="*"/>
-
-
-            </DataGrid.Columns>
-        </DataGrid>
+                                    <TextBlock Text="{Binding Severity}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn  Header="Summary" Binding="{Binding Summary}"/>
+                    <DataGridTextColumn  Header="Issue Type" Binding="{Binding IssueType}"/>
+                    <DataGridTextColumn  Header="Component" Binding="{Binding Component}" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
     </Grid>
 </UserControl>

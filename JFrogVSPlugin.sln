@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.26730.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xray", "Xray\Xray.csproj", "{7160C69A-20C6-4D8D-ADCF-E4841A91574F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F9E820BB-54BC-4EC2-934D-1FFE910A4120} = {F9E820BB-54BC-4EC2-934D-1FFE910A4120}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JFrogHTTPClient", "JFrogHTTPClient\JFrogHTTPClient.csproj", "{F9E820BB-54BC-4EC2-934D-1FFE910A4120}"
 EndProject

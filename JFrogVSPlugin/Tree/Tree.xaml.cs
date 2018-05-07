@@ -19,7 +19,6 @@ namespace JFrogVSPlugin.Tree
         public Tree()
         {
             InitializeComponent();
-           // this.DataContext = new TreeViewModel();
         }
 
         private void SelectionChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
