@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using Newtonsoft.Json;
 using JFrogVSPlugin.IssueDetails;
 using JFrogVSPlugin.Data;
+using System.Collections.Generic;
 
 namespace JFrogVSPlugin.Tree
 {
@@ -50,17 +51,32 @@ namespace JFrogVSPlugin.Tree
         /// <summary>
         /// TODO
         /// </summary>
-        public TreeViewModel()
+        public TreeViewModel(RefreshType refreshType, HashSet<Severity> severities)
         {
             DataService dataService = DataService.Instance;
-            this.Artifacts = new ObservableCollection<ArtifactViewModel>();
 
+            switch (refreshType)
+            {
+                case RefreshType.Hard:
+                    {
+                        dataService.Refresh(true);
+                        break;
+                    }
+
+                case RefreshType.Soft:
+                    {
+                        dataService.Refresh(false);
+                        break;
+                    }
+            }
+
+            this.Artifacts = new ObservableCollection<ArtifactViewModel>();
+            dataService.Severities = severities;
             foreach (string key in dataService.RootElements)
             {
                 Artifacts.Add(new ArtifactViewModel(key));
             }
         }
-
         #endregion
     }
 }

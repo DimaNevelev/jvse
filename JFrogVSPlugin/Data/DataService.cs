@@ -12,6 +12,12 @@ namespace JFrogVSPlugin.Data
         private static DataService instance;
         private Dictionary<string, Component> components;
         public List<string> RootElements { get; private set; }
+        public HashSet<Severity> Severities {
+            set
+            {
+                // todo filter rootElements and components
+            }
+        }
         private DataService()
         {
             InitializeComponent();
@@ -26,6 +32,11 @@ namespace JFrogVSPlugin.Data
                 }
                 return instance;
             }
+        }
+
+        public void Refresh(bool hard)
+        {
+
         }
 
         public Component getComponent(string key)
@@ -138,9 +149,13 @@ namespace JFrogVSPlugin.Data
 
     public enum Severity
     {
-        Major, Minor, Normal
+        Critical, Major, Minor, Normal, Unknown
     }
 
+    public enum RefreshType
+    {
+        Hard, Soft, None
+    }
 
 }
 
