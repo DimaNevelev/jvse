@@ -94,11 +94,12 @@
       <DependentUpon>Tree.xaml</DependentUpon>
     </Compile>
     <Compile Include="Tree\TreeViewModel.cs" />
-    <Compile Include="Utils\HeaderToImageConverter.cs" />
-    <Compile Include="Utils\TreeStructure.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <Content Include="JFrogMonikers.imagemanifest">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <None Include="Key.snk" />
     <VSCTCompile Include="MainPanelPackage.vsct">
       <ResourceName>Menus.ctmenu</ResourceName>
@@ -111,9 +112,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Content Include="JFrogMonikers.imagemanifest">
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>
     </None>
@@ -130,7 +128,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Resource Include="Resources\JFrog1.png" />
     <Resource Include="Resources\JFrog.png" />
     <Resource Include="Resources\major.png" />
     <Resource Include="Resources\minor.png" />

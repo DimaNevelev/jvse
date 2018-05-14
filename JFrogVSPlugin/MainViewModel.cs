@@ -1,13 +1,7 @@
 ﻿using JFrogVSPlugin.Data.ViewModels;
 using JFrogVSPlugin.Tree;
-using Microsoft.VisualStudio.PlatformUI;
-using Microsoft.VisualStudio.Imaging.Interop;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using JFrogVSPlugin.Data;
 
 namespace JFrogVSPlugin
@@ -29,12 +23,10 @@ namespace JFrogVSPlugin
             ResetSeverities();
             this.Tree = new TreeViewModel(RefreshType.Soft, Severities);
         }
-
         public void Refresh()
         {
             this.Tree = new TreeViewModel(RefreshType.Hard, Severities);
         }
-
         public void ExpandAll()
         {
             if (Tree.Artifacts != null)
@@ -55,7 +47,6 @@ namespace JFrogVSPlugin
                 }
             }
         }
-
         public void AddSeverityToFilter(string severityName)
         {
             if (severityName.Equals("All"))
@@ -69,7 +60,6 @@ namespace JFrogVSPlugin
             }
             this.Tree = new TreeViewModel(RefreshType.None, Severities);
         }
-
         public void RemoveSeverityFromFilter(string severityName)
         {
             if (severityName.Equals("All"))
@@ -78,7 +68,6 @@ namespace JFrogVSPlugin
             }
             this.Tree = new TreeViewModel(RefreshType.None, Severities);
         }
-
         public void ResetSeverities()
         {
             foreach (Severity severity in Enum.GetValues(typeof(Severity)))

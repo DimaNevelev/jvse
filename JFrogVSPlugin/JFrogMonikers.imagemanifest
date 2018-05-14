@@ -4,7 +4,7 @@
 <ImageManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/VisualStudio/ImageManifestSchema/2014">
   <Symbols>
     <String Name="Resources" Value="/JFrogVSPlugin;Component/Resources" />
-    <Guid Name="JFrogMoniker" Value="{86a2727e-a627-4c99-a8cc-c5622bc3479c}" />
+    <Guid Name="JFrogMoniker" Value="{b2d9eecf-c9d2-4a0b-88fb-7a4715a2d763}" />
     <ID Name="critical" Value="10" />
     <ID Name="default" Value="20" />
     <ID Name="JFrog" Value="30" />
@@ -29,11 +29,6 @@
     <Image Guid="$(JFrogMoniker)" ID="$(JFrog)">
       <Source Uri="$(Resources)/JFrog.png">
         <Dimensions Width="218" Height="212" />
-      </Source>
-    </Image>
-    <Image Guid="$(JFrogMoniker)" ID="$(JFrog1)">
-      <Source Uri="$(Resources)/JFrog1.png">
-        <Dimensions Width="1157" Height="1108" />
       </Source>
     </Image>
     <Image Guid="$(JFrogMoniker)" ID="$(license)">

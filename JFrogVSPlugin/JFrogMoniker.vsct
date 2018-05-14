@@ -7,7 +7,7 @@
 
 <CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable">
   <Symbols>
-    <GuidSymbol name="JFrogMoniker" value="{86a2727e-a627-4c99-a8cc-c5622bc3479c}">
+    <GuidSymbol name="JFrogMoniker" value="{b2d9eecf-c9d2-4a0b-88fb-7a4715a2d763}">
       <IDSymbol name="critical" value="10" />
       <IDSymbol name="default" value="20" />
       <IDSymbol name="JFrog" value="30" />

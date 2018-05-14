@@ -40,7 +40,6 @@ namespace JFrogVSPlugin
             }
 
             this.package = package;
-
             OleMenuCommandService commandService = this.ServiceProvider.GetService(typeof(IMenuCommandService)) as OleMenuCommandService;
             if (commandService != null)
             {
@@ -48,13 +47,6 @@ namespace JFrogVSPlugin
                 var menuItem = new MenuCommand(this.ShowToolWindow, menuCommandID);
                 commandService.AddCommand(menuItem);
             }
-
-//            IVsPackageInstaller2 nugetService = ServiceProvider.GetService(typeof(IVsPackageInstaller2)) as IVsPackageInstaller2;
-  //          packageInstaller.
-    //        if (nugetService == null) return;
-      //      System.Windows.Forms.MessageBox.Show("Found the activity log service.");
-
-
         }
 
         /// <summary>

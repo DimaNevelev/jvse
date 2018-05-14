@@ -1,17 +1,13 @@
 ﻿using JFrogVSPlugin.Data;
 using Microsoft.VisualStudio.Imaging.Interop;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JFrogVSPlugin
 {
     class JFrogMonikerSelector
     {
-        private static readonly Guid JFrogMonikerGuid = new Guid("86a2727e-a627-4c99-a8cc-c5622bc3479c");
-        public static ImageMoniker GetSeverityMoniker(Severity severity)
+        private static readonly Guid JFrogMonikerGuid = new Guid("b2d9eecf-c9d2-4a0b-88fb-7a4715a2d763");
+        public static ImageMoniker SeverityToMoniker(Severity severity)
         {
             int id = 0;
             switch (severity)

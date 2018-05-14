@@ -147,7 +147,7 @@ namespace JFrogVSPlugin.Data
         public ImageMoniker SeveretyMoniker {
             get
             {
-                return JFrogMonikerSelector.GetSeverityMoniker(Severity);
+                return JFrogMonikerSelector.SeverityToMoniker(Severity);
             }
         }
     }

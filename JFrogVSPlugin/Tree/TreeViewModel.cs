@@ -1,7 +1,5 @@
 ﻿using JFrogVSPlugin.Data.ViewModels;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
-using JFrogVSPlugin.IssueDetails;
 using JFrogVSPlugin.Data;
 using System.Collections.Generic;
 

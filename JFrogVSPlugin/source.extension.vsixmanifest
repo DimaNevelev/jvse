@@ -4,7 +4,7 @@
         <Identity Id="JFrogVSPlugin.b7f2dadc-4e2e-4de9-ab7e-6f46f79fbd5a" Version="1.0" Language="en-US" Publisher="Dima Nevelev" />
         <DisplayName>JFrog Visual Studio Plugin</DisplayName>
         <Description xml:space="preserve">Dima This is your app</Description>
-        <Icon>Resources\Jfrog-Logo.ico</Icon>
+        <Icon>Jfrog-Logo.ico</Icon>
     </Metadata>
     <Installation>
         <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[15.0]" />

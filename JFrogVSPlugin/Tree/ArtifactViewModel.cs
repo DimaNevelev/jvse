@@ -1,9 +1,5 @@
-﻿using Microsoft.VisualStudio.Imaging;
-using Microsoft.VisualStudio.Imaging.Interop;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+﻿using Microsoft.VisualStudio.Imaging.Interop;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 
@@ -30,11 +26,8 @@ namespace JFrogVSPlugin.Data.ViewModels
             }
             set
             {
-                // If the UI tells us to expand...
                 if (value == true)
-                    // Find all children
                     Expand();
-                // If the UI tells us to closeSS
                 else
                    this.ClearChildren();
             }
@@ -47,7 +40,7 @@ namespace JFrogVSPlugin.Data.ViewModels
             DataService dataService = DataService.Instance;
             this.Key = key;
             Component component = dataService.getComponent(key);
-            this.SeveretyMoniker = JFrogMonikerSelector.GetSeverityMoniker(component.TopSeverity);
+            this.SeveretyMoniker = JFrogMonikerSelector.SeverityToMoniker(component.TopSeverity);
             if (component == null || component.Dependencies == null || component.Dependencies.Count == 0)
             {
                 return;

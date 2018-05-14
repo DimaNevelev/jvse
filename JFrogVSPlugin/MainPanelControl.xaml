@@ -8,10 +8,8 @@
              xmlns:Details="clr-namespace:JFrogVSPlugin.Details"
              mc:Ignorable="d"
              xmlns:vsp="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Shell.15.0"
-             xmlns:util="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Utilities"
              xmlns:catalog="clr-namespace:Microsoft.VisualStudio.Imaging;assembly=Microsoft.VisualStudio.ImageCatalog"
              xmlns:imaging="clr-namespace:Microsoft.VisualStudio.Imaging;assembly=Microsoft.VisualStudio.Imaging"
-             xmlns:theming="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Imaging" 
              Name="JFrog"
              Background="{DynamicResource {x:Static vsp:EnvironmentColors.ToolWindowBackgroundBrushKey}}"
              Foreground="{DynamicResource {x:Static vsp:EnvironmentColors.ToolWindowTextBrushKey}}">
@@ -60,9 +58,7 @@
                             ToolTip="Collapse All"
                             Background="Transparent" 
                             BorderBrush="Transparent">
-
                             <imaging:CrispImage x:Uid="CrispCollapseImage" Moniker="{x:Static catalog:KnownMonikers.CollapseAll}"/>
-
                         </Button>
 
                         <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" Background="{DynamicResource {x:Static vsp:EnvironmentColors.CommandBarSplitButtonSeparatorBrushKey}}" />

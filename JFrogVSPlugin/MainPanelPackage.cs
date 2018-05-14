@@ -63,10 +63,7 @@ namespace JFrogVSPlugin
         {
             MainPanelCommand.Initialize(this);
             base.Initialize();
-            //BitmapImageMoniker = Microsoft.VisualStudio.Imaging.KnownMonikers.Search;
-
         }
-
         #endregion
     }
 }
