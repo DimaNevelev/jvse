@@ -75,7 +75,6 @@
 
         private void HandleCheck(object sender, RoutedEventArgs e)
         {
-            text1.Text = "The CheckBox " + ((CheckBox)e.Source).Content + " is checked.";
             if (((CheckBox)e.Source).Content.Equals("All"))
             {
                 cbCriticall.IsChecked = true;
@@ -89,7 +88,6 @@
 
         private void HandleUnchecked(object sender, RoutedEventArgs e)
         {
-            text1.Text = "The CheckBox " + ((CheckBox)e.Source).Content + " is unchecked.";
             if (((CheckBox)e.Source).Content.Equals("All"))
             {
                 cbCriticall.IsChecked = false;

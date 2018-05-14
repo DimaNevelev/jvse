@@ -1,4 +1,6 @@
-﻿ using Newtonsoft.Json;
+﻿using Microsoft.VisualStudio.Imaging;
+using Microsoft.VisualStudio.Imaging.Interop;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -17,6 +19,8 @@ namespace JFrogVSPlugin.Data.ViewModels
         public int Issues { get; set; }
         public ObservableCollection<String> Dependencies { get; set; }
         public ObservableCollection<ArtifactViewModel> Children { get; set; }
+        public ImageMoniker SeveretyMoniker { get; }
+
 
         public bool IsExpanded
         {
@@ -43,6 +47,7 @@ namespace JFrogVSPlugin.Data.ViewModels
             DataService dataService = DataService.Instance;
             this.Key = key;
             Component component = dataService.getComponent(key);
+            this.SeveretyMoniker = JFrogMonikerSelector.GetSeverityMoniker(component.TopSeverity);
             if (component == null || component.Dependencies == null || component.Dependencies.Count == 0)
             {
                 return;
@@ -51,6 +56,9 @@ namespace JFrogVSPlugin.Data.ViewModels
             // Setup an empty children
             this.ClearChildren();
         }
+
+        
+
         #region Public Commands
 
         public ICommand ExpandCommand { get; set; }

@@ -31,7 +31,6 @@ namespace JFrogVSPlugin.Tree
             set
             {
                 selectedKey = value;
-                RaisePropertyChanged("SelectedKey");
                 DataService dataService = DataService.Instance;
                 SelectedComponent = dataService.getComponent(value);
                 if (SelectedComponent != null && SelectedComponent.Issues != null)
@@ -54,7 +53,8 @@ namespace JFrogVSPlugin.Tree
         public TreeViewModel(RefreshType refreshType, HashSet<Severity> severities)
         {
             DataService dataService = DataService.Instance;
-
+            bool failed = false;
+            RaisePropertyChanged("SelectedKey");
             switch (refreshType)
             {
                 case RefreshType.Hard:
@@ -69,6 +69,7 @@ namespace JFrogVSPlugin.Tree
                         break;
                     }
             }
+            //failed = dataService.isFail();
 
             this.Artifacts = new ObservableCollection<ArtifactViewModel>();
             dataService.Severities = severities;

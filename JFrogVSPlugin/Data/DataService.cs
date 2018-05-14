@@ -1,9 +1,6 @@
 ﻿using JFrogVSPlugin.Data.ViewModels;
-using System;
+using Microsoft.VisualStudio.Imaging.Interop;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JFrogVSPlugin.Data
 {
@@ -56,13 +53,15 @@ namespace JFrogVSPlugin.Data
                 Group = "org.borg",
                 Version = "1.1",
                 Type = "Nuget",
-                Dependencies = new List<string> { "a:1", "b:2", "c:3" },
+                Dependencies = new List<string> {"b:2", "c:3", "a:1"},
                 TopSeverity = Severity.Major,
                 Issues = new List<Issue>
                 {
-                    new Issue(Severity.Major, "some text1", "Securty", "aa:1.1"),
+                    new Issue(Severity.Minor, "some text1", "Securty", "c:3"),
                     new Issue(Severity.Normal, "some text1", "Securty", "c:3"),
-                    new Issue(Severity.Minor, "some text1", "Securty", "c:3")
+                    new Issue(Severity.Major, "FasterXML jackson-databind through 2.8.10 and 2.9.x through 2.9.3 allows unauthenticated remote code execution because of an incomplete fix for the CVE-2017-7525 deserialization flaw. This is exploitable by sending maliciously crafted JSON input to the readValue method of the ObjectMapper, bypassing a blacklist that is ineffective if the Spring libraries are available in the classpath.", "Securty", "com.fasterxml.jackson.core:jackson-databind:2.9.3"),
+                    new Issue(Severity.Major, "some text1", "Securty", "aa:1.1"),
+                    new Issue(Severity.Major, "FasterXML jackson-databind through 2.8.10 and 2.9.x through 2.9.3 allows unauthenticated remote code execution because of an incomplete fix for the CVE-2017-7525 deserialization flaw. This is exploitable by sending maliciously crafted JSON input to the readValue method of the ObjectMapper, bypassing a blacklist that is ineffective if the Spring libraries are available in the classpath.", "Securty", "com.fasterxml.jackson.core:jackson-databind:2.9.3")
                 }
             };
             this.components.Add(component1.Key, component1);
@@ -91,8 +90,8 @@ namespace JFrogVSPlugin.Data
                 TopSeverity = Severity.Minor,
                 Issues = new List<Issue>
                 {
-                    new Issue(Severity.Normal, "some tex3", "Securty", "c:3"),
-                    new Issue(Severity.Minor, "some text3", "Securty", "c:3")
+                    new Issue(Severity.Minor, "some text3", "Securty", "c:3"),
+                    new Issue(Severity.Normal, "some tex3", "Securty", "c:3")
                 }
             };
             this.components.Add(component3.Key, component3);
@@ -108,8 +107,8 @@ namespace JFrogVSPlugin.Data
                 TopSeverity = Severity.Minor,
                 Issues = new List<Issue>
                 {
-                    new Issue(Severity.Normal, "some text4", "Securty", "c:3"),
-                    new Issue(Severity.Minor, "some text4", "Securty", "c:3")
+                    new Issue(Severity.Minor, "some text4", "Securty", "c:3"),
+                    new Issue(Severity.Normal, "some text4", "Securty", "c:3")
                 }
             };
             this.components.Add(component4.Key, component4);
@@ -145,6 +144,12 @@ namespace JFrogVSPlugin.Data
         public string Summary { get; set; }
         public string IssueType { get; set; }
         public string Component { get; set; }
+        public ImageMoniker SeveretyMoniker {
+            get
+            {
+                return JFrogMonikerSelector.GetSeverityMoniker(Severity);
+            }
+        }
     }
 
     public enum Severity

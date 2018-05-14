@@ -15,8 +15,6 @@ namespace JFrogVSPlugin.IssueDetails
     {
         #region Public Properties
         public ObservableCollection<Issue> IssueDetails { get; set; }
-
-        //public string SelectedKey { get; set; }
         #endregion
 
         public IssueDetailsViewModel(string SelectedKey)
